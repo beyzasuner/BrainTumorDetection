@@ -68,5 +68,5 @@ Gelecekte yapılabilecek geliştirmeler:
 ## 👥 Katkıda Bulunanlar  
 Bu proje **Beyza Süner** ve **Senanur Öztürk** tarafından geliştirilmiştir.  
 
-- 🧑‍💻 [Beyza Süner] 
-- 🧑‍💻 [Senanur Öztürk] 
+- 🧑‍💻 **Beyza Süner** 
+- 🧑‍💻 **Senanur Öztürk**
