@@ -1,46 +1,72 @@
-# 🧠 Brain Tumor Detection with CNN  
+# 🧠 Brain Tumor MRI Classification with CNN
 
 ## 📌 Giriş  
-Bu proje, **MRI görüntülerinden beyin tümörü tespiti** üzerine yapılmıştır.  
-Kullanılan veri seti: [Brain Tumor MRI Detection (Kaggle)](https://www.kaggle.com/datasets/arwabasal/brain-tumor-mri-detection)  
+Bu projede [Brain Tumor MRI Detection](https://www.kaggle.com/datasets/arwabasal/brain-tumor-mri-detection) veri seti kullanılmıştır.  
+Hedef, verilen MRI görüntülerini **“Tümör Var”** ve **“Tümör Yok”** olarak ayırabilen bir **Convolutional Neural Network (CNN)** modeli geliştirmektir.  
 
-Amaç, verilen MRI görüntülerini **“Tumor”** ve **“No Tumor”** olarak sınıflandırmaktır. Bunun için **Convolutional Neural Network (CNN)** tabanlı bir model tasarlanmıştır.  
-
----
-
-## ⚙️ Yöntem  
-- **Veri Ön İşleme:** Görseller yeniden boyutlandırılmış, normalize edilmiştir.  
-- **Model Mimarisi:** CNN katmanları kullanılarak ikili sınıflandırma modeli oluşturulmuştur.  
-- **Eğitim Süreci:** Model `train/validation` ayrımı ile eğitilmiş, `accuracy` ve `loss` grafikleri takip edilmiştir.  
-- **Model Değerlendirmesi:** Confusion Matrix, Classification Report, Accuracy ve Loss metrikleri ile performans ölçülmüştür.  
-- **Grad-CAM Görselleştirme:** Modelin hangi bölgelerden etkilendiği incelenmiştir.  
+Projenin ana adımları:  
+- Veri önişleme ve data augmentation (ör. yatay çevirme, döndürme)  
+- PyTorch ile custom CNN modeli geliştirme  
+- Eğitim sürecinin takip edilmesi (accuracy & loss grafikleri)  
+- Confusion Matrix ve Classification Report ile performans değerlendirmesi  
+- Grad-CAM yöntemiyle modelin dikkat ettiği bölgelerin görselleştirilmesi  
+- Hiperparametre optimizasyonu  
 
 ---
 
-## 📊 Metrikler  
-- **Eğitim Doğruluğu:** %XX  
-- **Doğrulama Doğruluğu:** %YY  
-- **Confusion Matrix ve Classification Report** ile detaylı sonuçlar paylaşılmıştır.  
+## 📊 Sonuçlar & Metrikler  
+Model 15 epoch boyunca eğitilmiştir.  
 
-Model, tümör ve tümör olmayan görüntüleri ayırt etmede yüksek başarı sağlamıştır.  
+- **Validation Accuracy:** %78  
+- **Classification Report:**  
+  - **No Tumor:** Precision=0.63, Recall=0.75, F1=0.69  
+  - **Tumor:** Precision=0.87, Recall=0.79, F1=0.83  
+- **Genel Accuracy:** 0.78  
+
+### 🔹 Confusion Matrix  
+Model, özellikle **“Tumor”** sınıfında daha yüksek başarı göstermiştir.  
+
+
+### 🔹 Accuracy & Loss Grafikleri  
+Eğitim sürecinde küçük dalgalanmalar gözlemlense de ciddi bir overfitting tespit edilmemiştir.  
+
+
+### 🔹 Grad-CAM Görselleştirmeleri  
+Modelin karar verme sırasında odaklandığı bölgeler, MRI görüntülerindeki tümör alanlarıyla büyük ölçüde örtüşmektedir.  
+
 
 ---
 
-## 🚀 Ekler  
-- Projede Grad-CAM ile **modelin odaklandığı bölgeler görselleştirilmiştir**.  
-- İlerleyen süreçlerde Streamlit ile basit bir **web arayüzü** eklenmesi planlanmaktadır.  
+## 🔧 Ek Çalışmalar  
+Deneme yapılan hiperparametreler:  
+- **Learning Rate:** 0.001, 0.0005  
+- **Batch Size:** 32, 64  
+- **Dropout:** 0.3 – 0.5  
+
+En iyi performans `lr=0.001, batch_size=32, dropout=0.5` parametreleri ile elde edilmiştir.  
+Proje hem GPU hem de CPU üzerinde çalıştırılabilmektedir.  
 
 ---
 
-## 🔮 Sonuç ve Gelecek Çalışmalar  
-Bu proje, temel bir CNN modeliyle beyin tümörü tespitinin mümkün olduğunu göstermektedir.  
-Gelecekte:  
-- Daha büyük ve çeşitli veri setleri ile test edilebilir.  
-- Transfer learning (ör. ResNet, VGG) modelleri denenebilir.  
-- Gerçek zamanlı MRI analizi için web veya mobil uygulama geliştirilebilir.  
+## 🚀 Sonuç ve Gelecek Planlar  
+- Model, %78 doğruluk ile beyin tümörü tespitinde umut verici sonuçlar üretmiştir.  
+
+Gelecekte yapılabilecek geliştirmeler:  
+- Daha güçlü CNN mimarileri veya **transfer learning** (ResNet, EfficientNet, VGG)  
+- Daha geniş ve çeşitli MRI veri setlerinin eklenmesi  
+- Kullanıcı arayüzü için **Streamlit/Gradio** ile deploy edilmesi  
+- Klinik sistemlere entegre edilerek gerçek zamanlı kullanım  
 
 ---
 
 ## 🔗 Linkler  
-- 📓 Kaggle Notebook: [Brain Tumor Detection Notebook](KENDİ_NOTEBOOK_LINKİNİ_EKLE)  
-- 📂 Dataset: [Brain Tumor MRI Detection](https://www.kaggle.com/datasets/arwabasal/brain-tumor-mri-detection)  
+- 📓 Kaggle Notebook: https://www.kaggle.com/code/beyzasuner/braintumordetection 
+- 📂 Dataset: https://www.kaggle.com/datasets/arwabasal/brain-tumor-mri-detection
+
+---
+
+## 👥 Katkıda Bulunanlar  
+Bu proje **Beyza Süner** ve **Senanur Öztürk** tarafından geliştirilmiştir.  
+
+- 🧑‍💻 [Beyza Süner] 
+- 🧑‍💻 [Senanur Öztürk] 
